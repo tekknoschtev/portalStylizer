@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+}
+.container-fluid {
+    height: 100%;
+    /*margin: 0;*/
+    /*padding: 0;*/
+    background: #6D6E6D;
+}
+
+.configurator {
+    color: lightgray;
+    background-color:  #6D6E6D;
+    height: 100%;
+}
+
+.results {
+    background-color: #CCC4Bd;
+    padding: 10px;
+    height: 100%;
+    box-shadow: 0px 0px 25px black;
+}
+
+.container-fluid > .row-fluid {
+    height: 100%;
+}
+
+.help-inline {
+    color: lightgrey;
+    font-style: italic;
+    font-size: 80%;
+}
+
+.btn {
+    box-shadow: 0px 5px 5px green;
+}
+
+label {
+    font-weight: bold;
+}
