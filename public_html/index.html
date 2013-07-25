@@ -1,22 +1,152 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Portal Styli</title>
+        <title>Portal Stylizer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link id="jquiCSS" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
         <link href="css/evol.colorpicker.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/stylizer.css" />
     </head>
     <body>
-        <input style="width:100px;" id="mycolor" />
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+                <div class="span3 configurator">
+                    <div class="banner">test</div>
+
+                    <label for="background-color">Background Color</label>
+                    <input class="color-picker" id="background-color" />
+
+                    <label for="container-color">Container Color</label>
+                    <input class="color-picker" id="container-color" />
+
+                    <label for="container-width">Container Width</label>
+                    <input class="" id="container-width" /><span class="help-inline">e.x. 960px</span>
+
+                    <label for="title-size">Title Size</label>
+                    <input class="" id="title-size" /><span class="help-inline">e.x. 30px, 150%</span>
+
+                    <label for="title-color">Title Text Color</label>
+                    <input class="color-picker" id="title-color" />
+
+                    <label for="header-size">Header Size</label>
+                    <input class="" id="header-size" /><span class="help-inline">e.x. 30px, 150%</span>
+
+                    <label for="header-color">Header Text Color</label>
+                    <input class="color-picker" id="header-color" />
+
+                    <label for="section-size">Section Size</label>
+                    <input class="" id="section-size" /><span class="help-inline">e.x. 30px, 150%</span>
+
+                    <label for="section-color">Section Text Color</label>
+                    <input class="color-picker" id="section-color" />
+
+                    <label for="section-background-color">Section Background Color</label>
+                    <input class="color-picker" id="section-background-color" />
+
+                    <label for="label-color">Label Text Color</label>
+                    <input class="color-picker" id="label-color" />
+
+                    <label for="label-background-color">Label Background Color</label>
+                    <input class="color-picker" id="label-background-color" />
+
+                    <label for="label-font-style">Label Font Style</label>
+                    <select class="span5" id="label-font-style">
+                        <option value=''></option>
+                        <option value='italic'>italic</option>
+                        <option value='underline'>underline</option>
+                    </select>
+
+                    <label for="link-color">Link Text Color</label>
+                    <input class="color-picker" id="link-color" />
+
+                    <label for="state-banner-url">State Banner URL</label>
+                    <input class="" id="state-banner-url" /><span class="help-inline">e.x. http://example.com/image.jpg</span>
+
+                    <label for="portal-title">Portal Title</label>
+                    <input class="" id="portal-title" /><span class="help-inline">e.x. Address Change Portal</span>
+
+                    <br /><br />
+                    <button id="gotime" class="btn btn-large btn-success">GO TIME</button>
+                </div>
+                <div class="span9 results">
+                    <h4>ADDR_CHG_LOGIN_HDR_1</h4>
+                    <textarea id="ADDR_CHG_LOGIN_HDR_1" class="span12" rows="10"></textarea>
+
+                    <h4>ADDR_CHG_HDR_1</h4>
+                    <textarea id="ADDR_CHG_HDR_1" class="span12" rows="10"></textarea>
+
+                    </textarea>
+                </div>
+            </div>
+
+        </div>
+
       
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/evol.colorpicker.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $("#mycolor").colorpicker();
+                $("input.color-picker").colorpicker();
+
+                $("#gotime").click(function() {
+
+                    var BACKGROUND_COLOR = $('#background-color').val() || "''"
+                        , CONTAINER_COLOR = $('#container-color').val() || "''"
+                        , CONTAINER_WIDTH = $('#container-width').val() || "''"
+                        , TITLE_SIZE = $('#title-size').val() || "''"
+                        , TITLE_COLOR = $('#title-color').val() || "''"
+                        , HEADER_SIZE = $('#header-size').val() || "''"
+                        , HEADER_COLOR = $('#header-color').val() || "''"
+                        , SECTION_SIZE = $('#section-size').val() || "''"
+                        , SECTION_COLOR = $('#section-color').val() || "''"
+                        , SECTION_BACKGROUND_COLOR = $('#section-background-color').val() || "''"
+                        , LINK_COLOR = $('#link-color').val() || "''"
+                        , LABEL_COLOR = $('#label-color').val() || "''"
+                        , LABEL_BACKGROUND_COLOR = $('#label-background-color').val() || "''"
+                        , LABEL_TEXT_STYLE = $('#label-font-style').val() || "''"
+                        , STATE_BANNER_URL = $('#state-banner-url').val() || ''
+                        , PORTAL_TITLE = $('#portal-title').val() || "''";
+
+
+                    var ADDR_CHG_LOGIN_HDR_1 = '<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">';
+                    ADDR_CHG_LOGIN_HDR_1 += '\n<style type="text/css">';
+                    ADDR_CHG_LOGIN_HDR_1 += '\nhtml, body {margin: 0;padding: 0;height: 100%;background:' + BACKGROUND_COLOR +';height:100%;}';
+                    ADDR_CHG_LOGIN_HDR_1 += '\nul{list-style:none;}';
+                    ADDR_CHG_LOGIN_HDR_1 += '\nbody{padding:20px;background-color:'+ CONTAINER_COLOR +';width:'+ CONTAINER_WIDTH +';margin:0 auto;}';
+                    ADDR_CHG_LOGIN_HDR_1 += '\n.flavorTextTitle{font-size:'+TITLE_SIZE+';color:'+TITLE_COLOR+'}';
+                    ADDR_CHG_LOGIN_HDR_1 += '\n.alert{margin:10px;}';
+                    ADDR_CHG_LOGIN_HDR_1 += "\ndiv[class*='Header']{color:"+HEADER_COLOR+";font-size:"+HEADER_SIZE+";}";
+                    ADDR_CHG_LOGIN_HDR_1 += "\n#addressChangeSubmissionLoginForm{width:"+CONTAINER_WIDTH+"; margin: 0 auto;text-align:center;}";
+                    ADDR_CHG_LOGIN_HDR_1 += '\n</style>';
+                    ADDR_CHG_LOGIN_HDR_1 += "\n<span><img src='"+STATE_BANNER_URL+"' alt='logo'</span>";
+                    ADDR_CHG_LOGIN_HDR_1 += "\n<span class='flavorTextTitle'>"+PORTAL_TITLE+"</span>";
+
+                    var ADDR_CHG_HDR_1 = '<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">';
+                    ADDR_CHG_HDR_1 += '\n<style type="text/css">';
+                    ADDR_CHG_HDR_1 += '\nhtml, body {margin: 0;padding: 0;height: 100%;background:' + BACKGROUND_COLOR +';height:100%;}';
+                    ADDR_CHG_HDR_1 += '\nul{list-style:none;}';
+                    ADDR_CHG_HDR_1 += '\nform{padding:20px;background-color:'+ CONTAINER_COLOR +';width:'+ CONTAINER_WIDTH +';margin:0 auto;}';
+                    ADDR_CHG_HDR_1 += '\n.flavorTextTitle{font-size:'+TITLE_SIZE+';color:'+TITLE_COLOR+'}';
+                    ADDR_CHG_HDR_1 += '\n.alert{margin:10px;}';
+                    ADDR_CHG_HDR_1 += '\na{color:'+LINK_COLOR+';}';
+                    ADDR_CHG_HDR_1 += "\ndiv[class*='Label']{margin-left:20px;color:"+LABEL_COLOR+";background-color:"+LABEL_BACKGROUND_COLOR+";font-style:"+LABEL_TEXT_STYLE+";padding:5px;}";
+                    ADDR_CHG_HDR_1 += "\ndiv[class*='Header']{color:"+HEADER_COLOR+";font-size:"+HEADER_SIZE+";}";
+                    ADDR_CHG_HDR_1 += "\n#preCompanyInfoOne, #prePersonalInfoOne, #preUserInfoOne, #preAddressInfoOne {color:"+SECTION_COLOR+";font-size:"+SECTION_SIZE+";background-color:"+SECTION_BACKGROUND_COLOR+"; padding: 5px;}";
+                    ADDR_CHG_HDR_1 += "\ninput[class*='Value'], div[class*='Value'], select[class*='Value'] {margin-left: 20px;}";
+                    ADDR_CHG_HDR_1 += '\n</style>';
+                    ADDR_CHG_HDR_1 += "\n<span><img src='"+STATE_BANNER_URL+"' alt='logo'</span>";
+                    ADDR_CHG_HDR_1 += "\n<span class='flavorTextTitle'>"+PORTAL_TITLE+"</span>";
+
+
+                    $('#ADDR_CHG_LOGIN_HDR_1').val(ADDR_CHG_LOGIN_HDR_1);
+                    $('#ADDR_CHG_HDR_1').val(ADDR_CHG_HDR_1);
+
+                })
+
             });
          </script>
     </body>
